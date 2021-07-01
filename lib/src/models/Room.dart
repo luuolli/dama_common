@@ -29,8 +29,10 @@ class Room {
   factory Room.fromMap(Map<String, dynamic> map) {
     return Room(
       id: map['id'],
-      firstPlayer: Player.fromMap(map['fisrtPlayer']),
-      secondPlayer: Player.fromMap(map['secondPlayer']),
+      firstPlayer:
+          map['fisrtPlayer'] ? Player.fromMap(map['fisrtPlayer']) : null,
+      secondPlayer:
+          map['secondPlayer'] ? Player.fromMap(map['secondPlayer']) : null,
       turn: map['turn'],
     );
   }
