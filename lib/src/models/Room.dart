@@ -30,7 +30,7 @@ class Room {
     return Room(
       id: map['id'],
       firstPlayer:
-          map['fisrtPlayer'] ? Player.fromMap(map['fisrtPlayer']) : null,
+          map['firstPlayer'] ? Player.fromMap(map['firstPlayer']) : null,
       secondPlayer:
           map['secondPlayer'] ? Player.fromMap(map['secondPlayer']) : null,
       turn: map['turn'],
