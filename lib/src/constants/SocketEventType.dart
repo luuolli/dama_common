@@ -10,4 +10,5 @@ abstract class SocketEventTypes {
   static const PLAY = 'play';
   static const CHANGE_TURN = 'change-turn';
   static const PLAYER_DISCONNECTED = 'player-disconnected';
+  static const ROOM_LIST = 'rooms-listed';
 }
