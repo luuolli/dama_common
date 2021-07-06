@@ -9,8 +9,8 @@ extension RoomExtension on Rooms {
     return 'randomId';
   }
 
-  List<Room> toMap() {
-    return entries.map((room) => room.value).toList();
+  List<Map<String, dynamic>> toMap() {
+    return entries.map((room) => room.value.toMap()).toList();
   }
 
   List<String>? removePlayer(String id) {
