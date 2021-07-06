@@ -1,3 +1,5 @@
+import 'package:dama_common/src/models/Room.dart';
+
 import '../typedefs/Typedefs.dart';
 export 'BoardExtension.dart' show BoardExtension;
 export 'PlayersExtension.dart' show PlayersExtension;
@@ -7,8 +9,8 @@ extension RoomExtension on Rooms {
     return 'randomId';
   }
 
-  void toMap() {
-    throw UnimplementedError();
+  List<Room> toMap() {
+    return entries.map((room) => room.value).toList();
   }
 
   List<String>? removePlayer(String id) {
