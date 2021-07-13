@@ -50,7 +50,7 @@ class Move {
     return Move(
       positionFrom: Position.fromMap(map['positionFrom']),
       positionTo: Position.fromMap(map['positionTo']),
-      isLady: map['isLady'],
+      isLady: map['isLady'] ?? false,
     );
   }
 
