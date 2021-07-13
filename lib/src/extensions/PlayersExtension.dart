@@ -1,4 +1,4 @@
-import '../typedefs/Typedefs.dart';
+import '../constants/Typedefs.dart';
 
 extension PlayersExtension on Players {
   PlayersMap toMap() {

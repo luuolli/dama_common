@@ -8,4 +8,4 @@ export 'src/constants/SocketConnectionState.dart';
 export 'src/extensions/extensions.dart';
 export 'src/log/Log.dart';
 export 'src/models/models.dart';
-export 'src/typedefs/Typedefs.dart';
+export 'src/constants/Typedefs.dart';

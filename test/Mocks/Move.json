@@ -1,0 +1,11 @@
+{
+  "positionFrom": {
+    "row": 1,
+    "column": 1
+  },
+  "positionTo": {
+    "row": 2,
+    "column": 1
+  },
+  "isLady": false
+}

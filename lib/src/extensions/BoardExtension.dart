@@ -1,13 +1,34 @@
+import 'dart:convert';
+
 import '../models/models.dart';
-import '../typedefs/Typedefs.dart';
+import '../constants/Typedefs.dart';
 
 extension BoardExtension on Board {
-  void swap(Play play) {
-    this[play.rowTo][play.colTo] = this[play.rowFrom][play.colFrom];
-    this[play.rowFrom][play.colFrom] = null;
+  /// Swap position of `Peace`
+  void swap(Move play) {
+    firstWhere((peace) => peace.position == play.positionFrom).position =
+        play.positionTo;
   }
 
-  void capture(int row, int column) {
-    this[row][column] = null;
+  /// Capture `Peace` of `Board`
+  void capture(Position position) {
+    removeWhere((peace) => peace.position == position);
   }
+
+  /// Convert object `Board` into `Map`.
+  /// ```json
+  /// [
+  ///   [
+  ///     peace.toMap(),
+  ///     ...
+  ///   ],
+  ///   ...
+  /// ]
+  /// ```
+  BoardMap toMap() {
+    return map((peace) => peace.toMap()).toList();
+  }
+
+  /// Convert object `Board` into `String` json.
+  String toJson() => json.encode(toMap());
 }

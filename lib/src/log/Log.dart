@@ -1,4 +1,4 @@
-import '../typedefs/Typedefs.dart';
+import '../constants/Typedefs.dart';
 
 class Log {
   static void roomsStatus(Rooms rooms) {

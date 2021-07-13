@@ -1,7 +1,9 @@
-import '../typedefs/Typedefs.dart';
+import 'dart:convert';
+
+import '../constants/Typedefs.dart';
 
 extension MessagesExtension on Messages {
-  MessagesMap toMap() {
-    return map((e) => e.toMap()).toList();
-  }
+  MessagesMap toMap() => map((e) => e.toMap()).toList();
+
+  String toJson() => json.encode(toMap());
 }

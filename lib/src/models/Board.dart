@@ -1,40 +1,35 @@
-@deprecated
-import 'package:dama_common/src/models/Position.dart';
+import 'package:dama_common/src/models/models.dart';
 
-import '../typedefs/Typedefs.dart';
-import '../models/models.dart';
+import '../constants/Typedefs.dart';
 
-Board initializeBoard() {
+/// # Board
+/// Initialize List of `Peace`.
+Board initialize() {
   var isEmpty = true;
-  return List.generate(8, (l) {
-    return List.generate(
-      8,
-      (c) {
-        isEmpty = !isEmpty;
-        if (c == 0) isEmpty = !isEmpty;
-        return l < 3 && !isEmpty
-            ? Peace(position: Position(row: l, column: c), isWhite: true)
-            : (l > 4 && !isEmpty
-                ? Peace(
-                    position: Position(
-                    row: l,
-                    column: c,
-                  ))
-                : null);
-      },
-    );
-  });
+  var peaces = <Peace>[];
+
+  List.generate(
+    8,
+    (row) {
+      List.generate(
+        8,
+        (column) {
+          isEmpty = !isEmpty;
+          if (column == 0) isEmpty = !isEmpty;
+          if (row < 3 && !isEmpty) {
+            var peace = Peace(
+              position: Position(row: row, column: column),
+              isWhite: true,
+            );
+            peaces.add(peace);
+          } else if (row > 4 && !isEmpty) {
+            var peace = Peace(position: Position(row: row, column: column));
+            peaces.add(peace);
+          }
+        },
+      );
+    },
+  );
+
+  return peaces;
 }
-// extension BoardExtension on Board {
-//   void swap(int rowFrom, int columnFrom, int rowTo, columnTo) {
-//     this[rowTo][columnTo] = this[rowFrom][columnFrom];
-//     this[rowFrom][columnFrom] = null;
-//   }
-
-//   void capture(int row, int column) {
-//     this[row][column] = null;
-//   }
-
-//   List<List<Map<String, bool>?>> get toMap =>
-//       map((r) => r.map((c) => c?.toMap()).toList()).toList();
-// }
